@@ -1,0 +1,17 @@
+# Testing
+pytest>=8.0.0
+
+# Core Data Engineering & Database
+pandas>=2.2.0
+numpy>=1.26.0
+sqlglot>=25.0.0
+tabulate>=0.9.0
+
+# Information Retrieval & RAG
+rank-bm25>=0.2.2
+google-genai>=1.0.0
+
+# UI & Utilities
+streamlit>=1.35.0
+python-dotenv>=1.0.0
+pydantic>=2.7.0

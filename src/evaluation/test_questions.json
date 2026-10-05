@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "difficulty": "Simple Single-Table",
+    "question": "How many customers are there?",
+    "gold_sql": "SELECT COUNT(DISTINCT customer_unique_id) AS total_customers FROM customers;",
+    "expected_tables": ["customers"]
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "difficulty": "Simple Single-Table",
+    "question": "How many distinct products are cataloged?",
+    "gold_sql": "SELECT COUNT(*) AS total_products FROM products;",
+    "expected_tables": ["products"]
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "difficulty": "Simple Single-Table",
+    "question": "How many sellers are active in the database?",
+    "gold_sql": "SELECT COUNT(*) AS total_sellers FROM sellers;",
+    "expected_tables": ["sellers"]
+  },
+  {
+    "id": 4,
+    "level": 2,
+    "difficulty": "Filtering",
+    "question": "How many orders were delivered in 2018?",
+    "gold_sql": "SELECT COUNT(*) AS count FROM orders WHERE order_status = 'delivered' AND strftime('%Y', order_purchase_timestamp) = '2018';",
+    "expected_tables": ["orders"]
+  },
+  {
+    "id": 5,
+    "level": 2,
+    "difficulty": "Filtering",
+    "question": "How many customers are located in the state of SP?",
+    "gold_sql": "SELECT COUNT(*) AS count FROM customers WHERE customer_state = 'SP';",
+    "expected_tables": ["customers"]
+  },
+  {
+    "id": 6,
+    "level": 2,
+    "difficulty": "Filtering",
+    "question": "How many orders have a status of canceled?",
+    "gold_sql": "SELECT COUNT(*) AS canceled_orders FROM orders WHERE order_status = 'canceled';",
+    "expected_tables": ["orders"]
+  },
+  {
+    "id": 7,
+    "level": 3,
+    "difficulty": "Aggregation",
+    "question": "What is the average freight value across all ordered items?",
+    "gold_sql": "SELECT ROUND(AVG(freight_value), 2) AS avg_freight FROM order_items;",
+    "expected_tables": ["order_items"]
+  },
+  {
+    "id": 8,
+    "level": 3,
+    "difficulty": "Aggregation",
+    "question": "What is the maximum number of payment installments used for an order?",
+    "gold_sql": "SELECT MAX(payment_installments) AS max_installments FROM order_payments;",
+    "expected_tables": ["order_payments"]
+  },
+  {
+    "id": 9,
+    "level": 3,
+    "difficulty": "Aggregation",
+    "question": "What is the average review score across all orders?",
+    "gold_sql": "SELECT ROUND(AVG(review_score), 2) AS avg_score FROM order_reviews;",
+    "expected_tables": ["order_reviews"]
+  },
+  {
+    "id": 10,
+    "level": 4,
+    "difficulty": "Joins",
+    "question": "Which sellers generated the highest revenue?",
+    "gold_sql": "SELECT oi.seller_id, ROUND(SUM(oi.price), 2) AS revenue FROM order_items oi GROUP BY oi.seller_id ORDER BY revenue DESC LIMIT 10;",
+    "expected_tables": ["order_items", "sellers"]
+  },
+  {
+    "id": 11,
+    "level": 4,
+    "difficulty": "Joins",
+    "question": "What is the average review score for delivered orders?",
+    "gold_sql": "SELECT ROUND(AVG(r.review_score), 2) AS avg_score FROM order_reviews r JOIN orders o ON r.order_id = o.order_id WHERE o.order_status = 'delivered';",
+    "expected_tables": ["order_reviews", "orders"]
+  },
+  {
+    "id": 12,
+    "level": 4,
+    "difficulty": "Joins",
+    "question": "What is the total payment value collected by payment type?",
+    "gold_sql": "SELECT payment_type, ROUND(SUM(payment_value), 2) AS total_val FROM order_payments GROUP BY payment_type ORDER BY total_val DESC;",
+    "expected_tables": ["order_payments"]
+  },
+  {
+    "id": 13,
+    "level": 5,
+    "difficulty": "Multi-table Analytical",
+    "question": "Which product categories generated the most revenue in 2018?",
+    "gold_sql": "SELECT COALESCE(ct.product_category_name_english, p.product_category_name) AS category, ROUND(SUM(oi.price), 2) AS revenue FROM order_items oi JOIN products p ON oi.product_id = p.product_id LEFT JOIN category_translation ct ON p.product_category_name = ct.product_category_name JOIN orders o ON oi.order_id = o.order_id WHERE strftime('%Y', o.order_purchase_timestamp) = '2018' GROUP BY category ORDER BY revenue DESC LIMIT 10;",
+    "expected_tables": ["order_items", "products", "orders", "category_translation"]
+  },
+  {
+    "id": 14,
+    "level": 5,
+    "difficulty": "Multi-table Analytical",
+    "question": "What is the average delivery time in days for customers in São Paulo?",
+    "gold_sql": "SELECT ROUND(AVG(julianday(o.order_delivered_customer_date) - julianday(o.order_purchase_timestamp)), 2) AS avg_delivery_days FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE LOWER(c.customer_city) = 'sao paulo' AND o.order_status = 'delivered' AND o.order_delivered_customer_date IS NOT NULL;",
+    "expected_tables": ["orders", "customers"]
+  },
+  {
+    "id": 15,
+    "level": 5,
+    "difficulty": "Multi-table Analytical",
+    "question": "Which sellers had the highest average review score with at least 50 reviews?",
+    "gold_sql": "SELECT oi.seller_id, ROUND(AVG(r.review_score), 2) AS avg_score, COUNT(r.review_id) AS total_reviews FROM order_items oi JOIN order_reviews r ON oi.order_id = r.order_id GROUP BY oi.seller_id HAVING COUNT(r.review_id) >= 50 ORDER BY avg_score DESC LIMIT 10;",
+    "expected_tables": ["order_items", "order_reviews", "sellers"]
+  }
+]

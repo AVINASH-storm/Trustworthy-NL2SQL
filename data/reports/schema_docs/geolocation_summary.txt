@@ -1,0 +1,9 @@
+TABLE: geolocation_summary
+ROW_COUNT: 19,015
+PRIMARY_KEY: zip_code_prefix
+COLUMNS:
+  - zip_code_prefix (TEXT) [PRIMARY KEY]
+  - lat (REAL)
+  - lng (REAL)
+  - city (TEXT)
+  - state (TEXT)

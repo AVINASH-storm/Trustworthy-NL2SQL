@@ -1,0 +1,175 @@
+{
+  "database": "C:\\Users\\Avinash\\Desktop\\NL2SQL-main\\data\\database\\olist.db",
+  "checks": {
+    "row_counts": {
+      "category_translation": {
+        "csv_rows": 71,
+        "db_rows": 71,
+        "match": true
+      },
+      "products": {
+        "csv_rows": 32951,
+        "db_rows": 32951,
+        "match": true
+      },
+      "sellers": {
+        "csv_rows": 3095,
+        "db_rows": 3095,
+        "match": true
+      },
+      "customers": {
+        "csv_rows": 99441,
+        "db_rows": 99441,
+        "match": true
+      },
+      "orders": {
+        "csv_rows": 99441,
+        "db_rows": 99441,
+        "match": true
+      },
+      "order_items": {
+        "csv_rows": 112650,
+        "db_rows": 112650,
+        "match": true
+      },
+      "order_payments": {
+        "csv_rows": 103886,
+        "db_rows": 103886,
+        "match": true
+      },
+      "order_reviews": {
+        "csv_rows": 99224,
+        "db_rows": 99224,
+        "match": true
+      },
+      "geolocation": {
+        "csv_rows": 1000163,
+        "db_rows": 1000163,
+        "match": true
+      }
+    },
+    "primary_keys": {
+      "customers": {
+        "primary_key": [
+          "customer_id"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "orders": {
+        "primary_key": [
+          "order_id"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "category_translation": {
+        "primary_key": [
+          "product_category_name"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "products": {
+        "primary_key": [
+          "product_id"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "sellers": {
+        "primary_key": [
+          "seller_id"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "order_items": {
+        "primary_key": [
+          "order_id",
+          "order_item_id"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "order_payments": {
+        "primary_key": [
+          "order_id",
+          "payment_sequential"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "order_reviews": {
+        "primary_key": [
+          "review_id",
+          "order_id"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      },
+      "geolocation_summary": {
+        "primary_key": [
+          "zip_code_prefix"
+        ],
+        "null_pks": 0,
+        "duplicate_pks": 0,
+        "passed": true
+      }
+    },
+    "foreign_key_pragma": {
+      "violations_count": 0,
+      "violations": [],
+      "passed": true
+    },
+    "orphan_audits": {
+      "orders.customer_id -> customers.customer_id": {
+        "orphan_count": 0,
+        "passed": true
+      },
+      "order_items.order_id -> orders.order_id": {
+        "orphan_count": 0,
+        "passed": true
+      },
+      "order_items.product_id -> products.product_id": {
+        "orphan_count": 0,
+        "passed": true
+      },
+      "order_items.seller_id -> sellers.seller_id": {
+        "orphan_count": 0,
+        "passed": true
+      },
+      "order_payments.order_id -> orders.order_id": {
+        "orphan_count": 0,
+        "passed": true
+      },
+      "order_reviews.order_id -> orders.order_id": {
+        "orphan_count": 0,
+        "passed": true
+      }
+    },
+    "null_authenticity": {
+      "orders.order_delivered_customer_date": {
+        "null_count": 2965,
+        "preserved_authentic_nulls": true
+      },
+      "order_reviews.review_comment_title": {
+        "null_count": 87658,
+        "preserved_authentic_nulls": true
+      },
+      "products.product_category_name": {
+        "null_count": 610,
+        "preserved_authentic_nulls": true
+      }
+    }
+  },
+  "all_passed": true
+}

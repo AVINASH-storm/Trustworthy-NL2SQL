@@ -1,0 +1,15 @@
+TABLE: order_items
+ROW_COUNT: 112,650
+PRIMARY_KEY: order_id, order_item_id
+COLUMNS:
+  - order_id (TEXT NOT NULL) [PRIMARY KEY]
+  - order_item_id (INTEGER NOT NULL) [PRIMARY KEY]
+  - product_id (TEXT NOT NULL)
+  - seller_id (TEXT NOT NULL)
+  - shipping_limit_date (DATETIME)
+  - price (REAL)
+  - freight_value (REAL)
+RELATIONSHIPS:
+  - order_items.seller_id -> sellers.seller_id
+  - order_items.product_id -> products.product_id
+  - order_items.order_id -> orders.order_id

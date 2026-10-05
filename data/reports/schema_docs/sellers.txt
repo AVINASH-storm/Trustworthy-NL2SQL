@@ -1,0 +1,8 @@
+TABLE: sellers
+ROW_COUNT: 3,095
+PRIMARY_KEY: seller_id
+COLUMNS:
+  - seller_id (TEXT) [PRIMARY KEY]
+  - seller_zip_code_prefix (TEXT)
+  - seller_city (TEXT)
+  - seller_state (TEXT)

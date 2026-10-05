@@ -1,0 +1,6 @@
+TABLE: category_translation
+ROW_COUNT: 71
+PRIMARY_KEY: product_category_name
+COLUMNS:
+  - product_category_name (TEXT) [PRIMARY KEY]
+  - product_category_name_english (TEXT NOT NULL)

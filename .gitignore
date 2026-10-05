@@ -1,0 +1,34 @@
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Environments & secrets
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Database files (exceeds GitHub 100MB limit: olist.db is ~234MB)
+*.db
+*.db-shm
+*.db-wal
+data/database/*.db
+data/database/*.db-shm
+data/database/*.db-wal
+
+# Large raw CSV datasets (reproducible via python run_pipeline.py)
+*.csv
+data/raw/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Preserve documentation, reports & schema docs
+!data/reports/
+!data/reports/**

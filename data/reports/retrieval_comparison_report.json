@@ -1,0 +1,18 @@
+{
+  "BM25 Alone": {
+    "schema_recall_pct": 96.11,
+    "avg_tables_retrieved": 3.0
+  },
+  "Embedding Alone": {
+    "schema_recall_pct": 98.33,
+    "avg_tables_retrieved": 3.0
+  },
+  "Hybrid (BM25 + Emb + RRF)": {
+    "schema_recall_pct": 96.11,
+    "avg_tables_retrieved": 3.0
+  },
+  "Hybrid + Relationship Graph Expansion": {
+    "schema_recall_pct": 98.33,
+    "avg_tables_retrieved": 3.47
+  }
+}

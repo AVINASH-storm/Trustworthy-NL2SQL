@@ -1,0 +1,15 @@
+TABLE: products
+ROW_COUNT: 32,951
+PRIMARY_KEY: product_id
+COLUMNS:
+  - product_id (TEXT) [PRIMARY KEY]
+  - product_category_name (TEXT)
+  - product_name_length (INTEGER)
+  - product_description_length (INTEGER)
+  - product_photos_qty (INTEGER)
+  - product_weight_g (REAL)
+  - product_length_cm (REAL)
+  - product_height_cm (REAL)
+  - product_width_cm (REAL)
+RELATIONSHIPS:
+  - products.product_category_name -> category_translation.product_category_name

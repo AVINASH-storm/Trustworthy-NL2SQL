@@ -1,0 +1,793 @@
+{
+  "generated_at": "2026-10-05T13:32:21.759122",
+  "total_tables": 9,
+  "tables": {
+    "customers": {
+      "file_name": "olist_customers_dataset.csv",
+      "table_name": "customers",
+      "row_count": 99441,
+      "column_count": 5,
+      "candidate_primary_keys": [
+        "customer_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "name": "customer_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 99441,
+          "is_candidate_pk": true,
+          "sample_values": [
+            "06b8999e2fba1a1fbc88172c00ba8bc7",
+            "18955e83d337fd6b2def6b18a428ac77",
+            "4e7b3e00288586ebd08712fdd0374a03"
+          ]
+        },
+        {
+          "name": "customer_unique_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 96096,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "861eff4711a542e4b93843c6dd7febb0",
+            "290c77bc529b7ac935b93aa66c333dc3",
+            "060e732b5b29e8181a18229c7b0b2b5e"
+          ]
+        },
+        {
+          "name": "customer_zip_code_prefix",
+          "inferred_type": "INTEGER",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 14994,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "14409",
+            "09790",
+            "01151"
+          ]
+        },
+        {
+          "name": "customer_city",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 4119,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "franca",
+            "sao bernardo do campo",
+            "sao paulo"
+          ]
+        },
+        {
+          "name": "customer_state",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 27,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "SP",
+            "SC",
+            "MG"
+          ]
+        }
+      ]
+    },
+    "geolocation": {
+      "file_name": "olist_geolocation_dataset.csv",
+      "table_name": "geolocation",
+      "row_count": 1000163,
+      "column_count": 5,
+      "candidate_primary_keys": [],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "name": "geolocation_zip_code_prefix",
+          "inferred_type": "INTEGER",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 19015,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "01037",
+            "01046",
+            "01041"
+          ]
+        },
+        {
+          "name": "geolocation_lat",
+          "inferred_type": "REAL",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 717372,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "-23.54562128115268",
+            "-23.546081127035535",
+            "-23.54612896641469"
+          ]
+        },
+        {
+          "name": "geolocation_lng",
+          "inferred_type": "REAL",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 717615,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "-46.63929204800168",
+            "-46.64482029837157",
+            "-46.64295148361138"
+          ]
+        },
+        {
+          "name": "geolocation_city",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 8010,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "sao paulo",
+            "s\u00e3o paulo",
+            "sao bernardo do campo"
+          ]
+        },
+        {
+          "name": "geolocation_state",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 27,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "SP",
+            "RN",
+            "AC"
+          ]
+        }
+      ]
+    },
+    "order_items": {
+      "file_name": "olist_order_items_dataset.csv",
+      "table_name": "order_items",
+      "row_count": 112650,
+      "column_count": 7,
+      "candidate_primary_keys": [
+        "order_id",
+        "order_item_id"
+      ],
+      "is_composite_pk": true,
+      "columns": [
+        {
+          "name": "order_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 98666,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "00010242fe8c5a6d1ba2dd792cb16214",
+            "00018f77f2f0320c557190d7a144bdd3",
+            "000229ec398224ef6ca0657da4fc703e"
+          ]
+        },
+        {
+          "name": "order_item_id",
+          "inferred_type": "INTEGER",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 21,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "name": "product_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 32951,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "4244733e06e7ecb4970a6e2683c13e61",
+            "e5f2d52b802189ee658865ca93d83a8f",
+            "c777355d18b72b67abbeef9df44fd0fd"
+          ]
+        },
+        {
+          "name": "seller_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 3095,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "48436dade18ac8b2bce089ec2a041202",
+            "dd7ddc04e1b6c2c614352b383efe2d36",
+            "5b51032eddd242adc84c38acab88f23d"
+          ]
+        },
+        {
+          "name": "shipping_limit_date",
+          "inferred_type": "DATETIME",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 93318,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2017-09-19 09:45:35",
+            "2017-05-03 11:05:13",
+            "2018-01-18 14:48:30"
+          ]
+        },
+        {
+          "name": "price",
+          "inferred_type": "REAL",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 5968,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "58.90",
+            "239.90",
+            "199.00"
+          ]
+        },
+        {
+          "name": "freight_value",
+          "inferred_type": "REAL",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 6999,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "13.29",
+            "19.93",
+            "17.87"
+          ]
+        }
+      ]
+    },
+    "order_payments": {
+      "file_name": "olist_order_payments_dataset.csv",
+      "table_name": "order_payments",
+      "row_count": 103886,
+      "column_count": 5,
+      "candidate_primary_keys": [
+        "order_id",
+        "payment_sequential"
+      ],
+      "is_composite_pk": true,
+      "columns": [
+        {
+          "name": "order_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 99440,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "b81ef226f3fe1789b1e8b2acac839d17",
+            "a9810da82917af2d9aefd1278f1dcfa0",
+            "25e8ea4e93396b6fa0d3dd708e76c1bd"
+          ]
+        },
+        {
+          "name": "payment_sequential",
+          "inferred_type": "INTEGER",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 29,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "1",
+            "2",
+            "4"
+          ]
+        },
+        {
+          "name": "payment_type",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 5,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "credit_card",
+            "boleto",
+            "voucher"
+          ]
+        },
+        {
+          "name": "payment_installments",
+          "inferred_type": "INTEGER",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 24,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "8",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "name": "payment_value",
+          "inferred_type": "REAL",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 29077,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "99.33",
+            "24.39",
+            "65.71"
+          ]
+        }
+      ]
+    },
+    "order_reviews": {
+      "file_name": "olist_order_reviews_dataset.csv",
+      "table_name": "order_reviews",
+      "row_count": 99224,
+      "column_count": 7,
+      "candidate_primary_keys": [
+        "review_id",
+        "order_id"
+      ],
+      "is_composite_pk": true,
+      "columns": [
+        {
+          "name": "review_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 98410,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "7bc2406110b926393aa56f80a40eba40",
+            "80e641a11e56f04c1ad469d5645fdfde",
+            "228ce5500dc1d8e020d8d1322874b6f0"
+          ]
+        },
+        {
+          "name": "order_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 98673,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "73fc7af87114b39712e6da79b0a377eb",
+            "a548910a1c6147796b98fdf73dbeba33",
+            "f9e4b658b201a9f2ecdecbb34bed034b"
+          ]
+        },
+        {
+          "name": "review_score",
+          "inferred_type": "INTEGER",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 5,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "4",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "name": "review_comment_title",
+          "inferred_type": "TEXT",
+          "null_count": 87658,
+          "null_percentage": 88.34,
+          "unique_count": 4178,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "recomendo",
+            "Super recomendo",
+            "N\u00e3o chegou meu produto"
+          ]
+        },
+        {
+          "name": "review_comment_message",
+          "inferred_type": "TEXT",
+          "null_count": 58274,
+          "null_percentage": 58.73,
+          "unique_count": 35616,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "Recebi bem antes do prazo estipulado.",
+            "Parab\u00e9ns lojas lannister adorei comprar pela Internet seguro e pr\u00e1tico Parab\u00e9ns a todos feliz P\u00e1scoa",
+            "aparelho eficiente. no site a marca do aparelho esta impresso como 3desinfector e ao chegar esta com outro nome...atualizar com a marca correta uma vez que \u00e9 o mesmo aparelho"
+          ]
+        },
+        {
+          "name": "review_creation_date",
+          "inferred_type": "DATETIME",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 636,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2018-01-18 00:00:00",
+            "2018-03-10 00:00:00",
+            "2018-02-17 00:00:00"
+          ]
+        },
+        {
+          "name": "review_answer_timestamp",
+          "inferred_type": "DATETIME",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 98248,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2018-01-18 21:46:59",
+            "2018-03-11 03:05:13",
+            "2018-02-18 14:36:24"
+          ]
+        }
+      ]
+    },
+    "orders": {
+      "file_name": "olist_orders_dataset.csv",
+      "table_name": "orders",
+      "row_count": 99441,
+      "column_count": 8,
+      "candidate_primary_keys": [
+        "order_id",
+        "customer_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "name": "order_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 99441,
+          "is_candidate_pk": true,
+          "sample_values": [
+            "e481f51cbdc54678b7cc49136f2d6af7",
+            "53cdb2fc8bc7dce0b6741e2150273451",
+            "47770eb9100c2d0c44946d9cf07ec65d"
+          ]
+        },
+        {
+          "name": "customer_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 99441,
+          "is_candidate_pk": true,
+          "sample_values": [
+            "9ef432eb6251297304e76186b10a928d",
+            "b0830fb4747a6c6d20dea0b8c802d7ef",
+            "41ce2a54c0b03bf3443c3d931a367089"
+          ]
+        },
+        {
+          "name": "order_status",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 8,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "delivered",
+            "invoiced",
+            "shipped"
+          ]
+        },
+        {
+          "name": "order_purchase_timestamp",
+          "inferred_type": "DATETIME",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 98875,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2017-10-02 10:56:33",
+            "2018-07-24 20:41:37",
+            "2018-08-08 08:38:49"
+          ]
+        },
+        {
+          "name": "order_approved_at",
+          "inferred_type": "DATETIME",
+          "null_count": 160,
+          "null_percentage": 0.16,
+          "unique_count": 90733,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2017-10-02 11:07:15",
+            "2018-07-26 03:24:27",
+            "2018-08-08 08:55:23"
+          ]
+        },
+        {
+          "name": "order_delivered_carrier_date",
+          "inferred_type": "DATETIME",
+          "null_count": 1783,
+          "null_percentage": 1.79,
+          "unique_count": 81018,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2017-10-04 19:55:00",
+            "2018-07-26 14:31:00",
+            "2018-08-08 13:50:00"
+          ]
+        },
+        {
+          "name": "order_delivered_customer_date",
+          "inferred_type": "DATETIME",
+          "null_count": 2965,
+          "null_percentage": 2.98,
+          "unique_count": 95664,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2017-10-10 21:25:13",
+            "2018-08-07 15:27:45",
+            "2018-08-17 18:06:29"
+          ]
+        },
+        {
+          "name": "order_estimated_delivery_date",
+          "inferred_type": "DATETIME",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 459,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "2017-10-18 00:00:00",
+            "2018-08-13 00:00:00",
+            "2018-09-04 00:00:00"
+          ]
+        }
+      ]
+    },
+    "products": {
+      "file_name": "olist_products_dataset.csv",
+      "table_name": "products",
+      "row_count": 32951,
+      "column_count": 9,
+      "candidate_primary_keys": [
+        "product_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "name": "product_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 32951,
+          "is_candidate_pk": true,
+          "sample_values": [
+            "1e9e8ef04dbcff4541ed26657ea517e5",
+            "3aa071139cb16b67ca9e5dea641aaa2f",
+            "96bd76ec8810374ed1b65e291975717f"
+          ]
+        },
+        {
+          "name": "product_category_name",
+          "inferred_type": "TEXT",
+          "null_count": 610,
+          "null_percentage": 1.85,
+          "unique_count": 73,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "perfumaria",
+            "artes",
+            "esporte_lazer"
+          ]
+        },
+        {
+          "name": "product_name_lenght",
+          "inferred_type": "INTEGER",
+          "null_count": 610,
+          "null_percentage": 1.85,
+          "unique_count": 66,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "40",
+            "44",
+            "46"
+          ]
+        },
+        {
+          "name": "product_description_lenght",
+          "inferred_type": "INTEGER",
+          "null_count": 610,
+          "null_percentage": 1.85,
+          "unique_count": 2960,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "287",
+            "276",
+            "250"
+          ]
+        },
+        {
+          "name": "product_photos_qty",
+          "inferred_type": "INTEGER",
+          "null_count": 610,
+          "null_percentage": 1.85,
+          "unique_count": 19,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "1",
+            "4",
+            "2"
+          ]
+        },
+        {
+          "name": "product_weight_g",
+          "inferred_type": "INTEGER",
+          "null_count": 2,
+          "null_percentage": 0.01,
+          "unique_count": 2204,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "225",
+            "1000",
+            "154"
+          ]
+        },
+        {
+          "name": "product_length_cm",
+          "inferred_type": "INTEGER",
+          "null_count": 2,
+          "null_percentage": 0.01,
+          "unique_count": 99,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "16",
+            "30",
+            "18"
+          ]
+        },
+        {
+          "name": "product_height_cm",
+          "inferred_type": "INTEGER",
+          "null_count": 2,
+          "null_percentage": 0.01,
+          "unique_count": 102,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "10",
+            "18",
+            "9"
+          ]
+        },
+        {
+          "name": "product_width_cm",
+          "inferred_type": "INTEGER",
+          "null_count": 2,
+          "null_percentage": 0.01,
+          "unique_count": 95,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "14",
+            "20",
+            "15"
+          ]
+        }
+      ]
+    },
+    "sellers": {
+      "file_name": "olist_sellers_dataset.csv",
+      "table_name": "sellers",
+      "row_count": 3095,
+      "column_count": 4,
+      "candidate_primary_keys": [
+        "seller_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "name": "seller_id",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 3095,
+          "is_candidate_pk": true,
+          "sample_values": [
+            "3442f8959a84dea7ee197c632cb2df15",
+            "d1b65fc7debc3361ea86b5f14c68d2e2",
+            "ce3ad9de960102d0677a81f5d0bb7b2d"
+          ]
+        },
+        {
+          "name": "seller_zip_code_prefix",
+          "inferred_type": "INTEGER",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 2246,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "13023",
+            "13844",
+            "20031"
+          ]
+        },
+        {
+          "name": "seller_city",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 611,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "campinas",
+            "mogi guacu",
+            "rio de janeiro"
+          ]
+        },
+        {
+          "name": "seller_state",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 23,
+          "is_candidate_pk": false,
+          "sample_values": [
+            "SP",
+            "RJ",
+            "PE"
+          ]
+        }
+      ]
+    },
+    "product_category_name_translation": {
+      "file_name": "product_category_name_translation.csv",
+      "table_name": "product_category_name_translation",
+      "row_count": 71,
+      "column_count": 2,
+      "candidate_primary_keys": [
+        "product_category_name",
+        "product_category_name_english"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "name": "product_category_name",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 71,
+          "is_candidate_pk": true,
+          "sample_values": [
+            "beleza_saude",
+            "informatica_acessorios",
+            "automotivo"
+          ]
+        },
+        {
+          "name": "product_category_name_english",
+          "inferred_type": "TEXT",
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "unique_count": 71,
+          "is_candidate_pk": true,
+          "sample_values": [
+            "health_beauty",
+            "computers_accessories",
+            "auto"
+          ]
+        }
+      ]
+    }
+  }
+}

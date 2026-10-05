@@ -1,0 +1,9 @@
+TABLE: geolocation
+ROW_COUNT: 1,000,163
+PRIMARY_KEY: NONE
+COLUMNS:
+  - geolocation_zip_code_prefix (TEXT)
+  - geolocation_lat (REAL)
+  - geolocation_lng (REAL)
+  - geolocation_city (TEXT)
+  - geolocation_state (TEXT)

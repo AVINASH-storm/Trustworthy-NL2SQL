@@ -1,0 +1,11 @@
+TABLE: customers
+ROW_COUNT: 99,441
+PRIMARY_KEY: customer_id
+COLUMNS:
+  - customer_id (TEXT) [PRIMARY KEY]
+  - customer_unique_id (TEXT NOT NULL)
+  - customer_zip_code_prefix (TEXT)
+  - customer_city (TEXT)
+  - customer_state (TEXT)
+RELATIONSHIPS:
+  - customers.customer_zip_code_prefix -> geolocation_summary.zip_code_prefix

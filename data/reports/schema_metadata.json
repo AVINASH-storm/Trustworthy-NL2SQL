@@ -1,0 +1,949 @@
+{
+  "database_type": "SQLite",
+  "database_path": "C:\\Users\\Avinash\\Desktop\\NL2SQL-main\\data\\database\\olist.db",
+  "table_count": 10,
+  "tables": {
+    "category_translation": {
+      "name": "category_translation",
+      "row_count": 71,
+      "primary_keys": [
+        "product_category_name"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "product_category_name",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "product_category_name_english",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "idx_cat_trans_english",
+          "unique": false,
+          "columns": [
+            "product_category_name_english"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_category_translation_1",
+          "unique": true,
+          "columns": [
+            "product_category_name"
+          ]
+        }
+      ]
+    },
+    "customers": {
+      "name": "customers",
+      "row_count": 99441,
+      "primary_keys": [
+        "customer_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "customer_id",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "customer_unique_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 2,
+          "name": "customer_zip_code_prefix",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "customer_city",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "customer_state",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [
+        {
+          "source_table": "customers",
+          "source_column": "customer_zip_code_prefix",
+          "target_table": "geolocation_summary",
+          "target_column": "zip_code_prefix",
+          "is_logical": true
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_customers_city_state",
+          "unique": false,
+          "columns": [
+            "customer_city",
+            "customer_state"
+          ]
+        },
+        {
+          "name": "idx_customers_zip",
+          "unique": false,
+          "columns": [
+            "customer_zip_code_prefix"
+          ]
+        },
+        {
+          "name": "idx_customers_unique_id",
+          "unique": false,
+          "columns": [
+            "customer_unique_id"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_customers_1",
+          "unique": true,
+          "columns": [
+            "customer_id"
+          ]
+        }
+      ]
+    },
+    "geolocation": {
+      "name": "geolocation",
+      "row_count": 1000163,
+      "primary_keys": [],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "geolocation_zip_code_prefix",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 1,
+          "name": "geolocation_lat",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 2,
+          "name": "geolocation_lng",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "geolocation_city",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "geolocation_state",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "idx_geolocation_city_state",
+          "unique": false,
+          "columns": [
+            "geolocation_city",
+            "geolocation_state"
+          ]
+        },
+        {
+          "name": "idx_geolocation_zip",
+          "unique": false,
+          "columns": [
+            "geolocation_zip_code_prefix"
+          ]
+        }
+      ]
+    },
+    "geolocation_summary": {
+      "name": "geolocation_summary",
+      "row_count": 19015,
+      "primary_keys": [
+        "zip_code_prefix"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "zip_code_prefix",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "lat",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 2,
+          "name": "lng",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "city",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "state",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "idx_geo_sum_city_state",
+          "unique": false,
+          "columns": [
+            "city",
+            "state"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_geolocation_summary_1",
+          "unique": true,
+          "columns": [
+            "zip_code_prefix"
+          ]
+        }
+      ]
+    },
+    "order_items": {
+      "name": "order_items",
+      "row_count": 112650,
+      "primary_keys": [
+        "order_id",
+        "order_item_id"
+      ],
+      "is_composite_pk": true,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "order_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "order_item_id",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key": true,
+          "pk_order": 2
+        },
+        {
+          "column_id": 2,
+          "name": "product_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "seller_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "shipping_limit_date",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 5,
+          "name": "price",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 6,
+          "name": "freight_value",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [
+        {
+          "source_table": "order_items",
+          "source_column": "seller_id",
+          "target_table": "sellers",
+          "target_column": "seller_id"
+        },
+        {
+          "source_table": "order_items",
+          "source_column": "product_id",
+          "target_table": "products",
+          "target_column": "product_id"
+        },
+        {
+          "source_table": "order_items",
+          "source_column": "order_id",
+          "target_table": "orders",
+          "target_column": "order_id"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_order_items_seller_id",
+          "unique": false,
+          "columns": [
+            "seller_id"
+          ]
+        },
+        {
+          "name": "idx_order_items_product_id",
+          "unique": false,
+          "columns": [
+            "product_id"
+          ]
+        },
+        {
+          "name": "idx_order_items_order_id",
+          "unique": false,
+          "columns": [
+            "order_id"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_order_items_1",
+          "unique": true,
+          "columns": [
+            "order_id",
+            "order_item_id"
+          ]
+        }
+      ]
+    },
+    "order_payments": {
+      "name": "order_payments",
+      "row_count": 103886,
+      "primary_keys": [
+        "order_id",
+        "payment_sequential"
+      ],
+      "is_composite_pk": true,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "order_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "payment_sequential",
+          "type": "INTEGER",
+          "not_null": true,
+          "primary_key": true,
+          "pk_order": 2
+        },
+        {
+          "column_id": 2,
+          "name": "payment_type",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "payment_installments",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "payment_value",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [
+        {
+          "source_table": "order_payments",
+          "source_column": "order_id",
+          "target_table": "orders",
+          "target_column": "order_id"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_order_payments_type",
+          "unique": false,
+          "columns": [
+            "payment_type"
+          ]
+        },
+        {
+          "name": "idx_order_payments_order_id",
+          "unique": false,
+          "columns": [
+            "order_id"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_order_payments_1",
+          "unique": true,
+          "columns": [
+            "order_id",
+            "payment_sequential"
+          ]
+        }
+      ]
+    },
+    "order_reviews": {
+      "name": "order_reviews",
+      "row_count": 99224,
+      "primary_keys": [
+        "review_id",
+        "order_id"
+      ],
+      "is_composite_pk": true,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "review_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "order_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": true,
+          "pk_order": 2
+        },
+        {
+          "column_id": 2,
+          "name": "review_score",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "review_comment_title",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "review_comment_message",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 5,
+          "name": "review_creation_date",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 6,
+          "name": "review_answer_timestamp",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [
+        {
+          "source_table": "order_reviews",
+          "source_column": "order_id",
+          "target_table": "orders",
+          "target_column": "order_id"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_order_reviews_score",
+          "unique": false,
+          "columns": [
+            "review_score"
+          ]
+        },
+        {
+          "name": "idx_order_reviews_order_id",
+          "unique": false,
+          "columns": [
+            "order_id"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_order_reviews_1",
+          "unique": true,
+          "columns": [
+            "review_id",
+            "order_id"
+          ]
+        }
+      ]
+    },
+    "orders": {
+      "name": "orders",
+      "row_count": 99441,
+      "primary_keys": [
+        "order_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "order_id",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "customer_id",
+          "type": "TEXT",
+          "not_null": true,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 2,
+          "name": "order_status",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "order_purchase_timestamp",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "order_approved_at",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 5,
+          "name": "order_delivered_carrier_date",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 6,
+          "name": "order_delivered_customer_date",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 7,
+          "name": "order_estimated_delivery_date",
+          "type": "DATETIME",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [
+        {
+          "source_table": "orders",
+          "source_column": "customer_id",
+          "target_table": "customers",
+          "target_column": "customer_id"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_orders_purchase_ts",
+          "unique": false,
+          "columns": [
+            "order_purchase_timestamp"
+          ]
+        },
+        {
+          "name": "idx_orders_status",
+          "unique": false,
+          "columns": [
+            "order_status"
+          ]
+        },
+        {
+          "name": "idx_orders_customer_id",
+          "unique": false,
+          "columns": [
+            "customer_id"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_orders_1",
+          "unique": true,
+          "columns": [
+            "order_id"
+          ]
+        }
+      ]
+    },
+    "products": {
+      "name": "products",
+      "row_count": 32951,
+      "primary_keys": [
+        "product_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "product_id",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "product_category_name",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 2,
+          "name": "product_name_length",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "product_description_length",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 4,
+          "name": "product_photos_qty",
+          "type": "INTEGER",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 5,
+          "name": "product_weight_g",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 6,
+          "name": "product_length_cm",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 7,
+          "name": "product_height_cm",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 8,
+          "name": "product_width_cm",
+          "type": "REAL",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [
+        {
+          "source_table": "products",
+          "source_column": "product_category_name",
+          "target_table": "category_translation",
+          "target_column": "product_category_name",
+          "is_logical": true
+        }
+      ],
+      "indexes": [
+        {
+          "name": "idx_products_category",
+          "unique": false,
+          "columns": [
+            "product_category_name"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_products_1",
+          "unique": true,
+          "columns": [
+            "product_id"
+          ]
+        }
+      ]
+    },
+    "sellers": {
+      "name": "sellers",
+      "row_count": 3095,
+      "primary_keys": [
+        "seller_id"
+      ],
+      "is_composite_pk": false,
+      "columns": [
+        {
+          "column_id": 0,
+          "name": "seller_id",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": true,
+          "pk_order": 1
+        },
+        {
+          "column_id": 1,
+          "name": "seller_zip_code_prefix",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 2,
+          "name": "seller_city",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        },
+        {
+          "column_id": 3,
+          "name": "seller_state",
+          "type": "TEXT",
+          "not_null": false,
+          "primary_key": false,
+          "pk_order": null
+        }
+      ],
+      "foreign_keys": [],
+      "indexes": [
+        {
+          "name": "idx_sellers_city_state",
+          "unique": false,
+          "columns": [
+            "seller_city",
+            "seller_state"
+          ]
+        },
+        {
+          "name": "idx_sellers_zip",
+          "unique": false,
+          "columns": [
+            "seller_zip_code_prefix"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_sellers_1",
+          "unique": true,
+          "columns": [
+            "seller_id"
+          ]
+        }
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "source_table": "order_items",
+      "source_column": "seller_id",
+      "target_table": "sellers",
+      "target_column": "seller_id"
+    },
+    {
+      "source_table": "order_items",
+      "source_column": "product_id",
+      "target_table": "products",
+      "target_column": "product_id"
+    },
+    {
+      "source_table": "order_items",
+      "source_column": "order_id",
+      "target_table": "orders",
+      "target_column": "order_id"
+    },
+    {
+      "source_table": "order_payments",
+      "source_column": "order_id",
+      "target_table": "orders",
+      "target_column": "order_id"
+    },
+    {
+      "source_table": "order_reviews",
+      "source_column": "order_id",
+      "target_table": "orders",
+      "target_column": "order_id"
+    },
+    {
+      "source_table": "orders",
+      "source_column": "customer_id",
+      "target_table": "customers",
+      "target_column": "customer_id"
+    },
+    {
+      "source_table": "products",
+      "source_column": "product_category_name",
+      "target_table": "category_translation",
+      "target_column": "product_category_name",
+      "is_logical": true
+    },
+    {
+      "source_table": "customers",
+      "source_column": "customer_zip_code_prefix",
+      "target_table": "geolocation_summary",
+      "target_column": "zip_code_prefix",
+      "is_logical": true
+    }
+  ],
+  "relationship_graph": {
+    "category_translation": [
+      "products"
+    ],
+    "customers": [
+      "geolocation_summary",
+      "orders"
+    ],
+    "geolocation": [],
+    "geolocation_summary": [
+      "customers"
+    ],
+    "order_items": [
+      "orders",
+      "products",
+      "sellers"
+    ],
+    "order_payments": [
+      "orders"
+    ],
+    "order_reviews": [
+      "orders"
+    ],
+    "orders": [
+      "customers",
+      "order_items",
+      "order_payments",
+      "order_reviews"
+    ],
+    "products": [
+      "category_translation",
+      "order_items"
+    ],
+    "sellers": [
+      "order_items"
+    ]
+  }
+}

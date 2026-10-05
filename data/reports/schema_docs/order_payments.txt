@@ -1,0 +1,11 @@
+TABLE: order_payments
+ROW_COUNT: 103,886
+PRIMARY_KEY: order_id, payment_sequential
+COLUMNS:
+  - order_id (TEXT NOT NULL) [PRIMARY KEY]
+  - payment_sequential (INTEGER NOT NULL) [PRIMARY KEY]
+  - payment_type (TEXT)
+  - payment_installments (INTEGER)
+  - payment_value (REAL)
+RELATIONSHIPS:
+  - order_payments.order_id -> orders.order_id
